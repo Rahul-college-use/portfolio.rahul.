@@ -13,7 +13,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             alt="Profile"
             className={`profile-image ${darkMode ? "dark" : "light"} fade-in`}
             title='Hi Everyone , Follow on Instagram'
-            onClick={()=>window.open('https:/instagram.com/_rahul_x_4u_')}
+            onClick={()=>window.open('https://www.instagram.com/_rahul_x_4u_/')}
           />
         </div>
         <h1>Rahul Kumar</h1>
