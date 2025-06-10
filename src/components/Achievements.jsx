@@ -9,6 +9,12 @@ const Achievements = ({ darkMode }) => {
     description: "Developed an Hostel Mess solution for Mess management"
   },
    
+  {
+     title: "Hackathon Coordinator",
+    subtitle: "1st Place at Coding Challenge 2023 in our College",
+    description: "Developed an Hostel Mess solution for Mess management"
+  },
+   
   
 ];
 

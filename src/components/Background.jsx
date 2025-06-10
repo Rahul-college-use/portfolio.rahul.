@@ -23,7 +23,7 @@ const Background = ({ darkMode, toggleDarkMode }) => {
                                 <li><strong>University:</strong> BEU University</li>
                                 <li><strong>Degree:</strong> Bachelor of Technology Computer Science (Bech)</li>
                                 <li><strong>Skills:</strong> JavaScript, React, Node.js, Python</li>
-                                <li><strong>Interests:</strong> AI, Web Development, Open Source</li>
+                                <li><strong>Interests:</strong> AI, Web Development, Open Source, Operating System </li>
                                 <li><strong>Email:</strong> rahul.cse.kr@gmail.com</li>
                             </ul>
                         </div>
