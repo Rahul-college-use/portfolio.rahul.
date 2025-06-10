@@ -33,7 +33,7 @@ function App() {
       {/* Pass darkMode and toggleDarkMode as props */}
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Background darkMode={darkMode}/>
-      <Projects/>
+      <Projects darkMode={darkMode}/>
       <GitHubProjects darkMode={darkMode}/>
       <Achievements darkMode={darkMode}/>
       <Footer darkMode={darkMode}/>

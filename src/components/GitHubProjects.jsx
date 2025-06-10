@@ -61,7 +61,7 @@ const GitHubProjects = ({ darkMode }) => {
       className="github-projects-section"
       style={darkMode ? { background: "#1F2932", borderBottom: "2px solid #fff" } : {}}
     >
-      <h2>GitHub Projects</h2>
+      <h2 style={darkMode ? { color: "rgba(244, 244, 244, 0.64)" } : {}}>GitHub Projects</h2>
       <div className="github-projects-list">
         {projects.map((project, index) => (
           <div

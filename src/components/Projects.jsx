@@ -2,7 +2,7 @@ import React, { useState, useRef} from 'react';
 import Project from './Project';
 import './Projects.css';
 
-const Projects = () => {
+const Projects = ({darkMode}) => {
     // Initialize with empty array if undefined
     const [projects] = useState([
         {
@@ -52,8 +52,8 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="projects-section" >
-            <h2>My Projects</h2>
+        <section id="projects" className="projects-section" style={darkMode ? { background: "rgba(74, 98, 132, 0.34)"} : {}} >
+            <h2 style={darkMode ? { color: "rgba(244, 244, 244, 0.64)" } : {}}>My Projects</h2>
             <div
                 className="projects-container"
                 ref={projectsContainerRef}
