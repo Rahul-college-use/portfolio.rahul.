@@ -5,8 +5,9 @@ import Background from './components/Background';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/ScrollToTopWithChatbot';
 import GitHubProjects from './components/GitHubProjects';
+import ScrollToTop2 from './components/ScrollToTop2';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -37,7 +38,9 @@ function App() {
       <GitHubProjects darkMode={darkMode}/>
       <Achievements darkMode={darkMode}/>
       <Footer darkMode={darkMode}/>
+      {/* <ChatBot/> */}
       <ScrollToTop />
+      <ScrollToTop2/>
     </div>
   );
 }
