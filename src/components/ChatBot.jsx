@@ -74,6 +74,13 @@ const projects = [
         description:"All Project Name Are :-\nRestaurants-app\nEvent Website\nFake Payment Gateway\nRock-Paper-Scissors-Game\nShopCart\nTic-Tac-Toe-Game\nWeather App\nFinance Tracker\nCheck this enter Project Name ",
         tag:"App aoubt project",
 
+    },
+    {
+        name:"Details ",
+        url:"https://wa.me/+919199855936",
+        description:"Hi Dear, \nThis Side ChatBot Form Rahul Side Conncet Me On Whatsapp Hit The Button ",
+        tag:"aoubt project help whatsapp number ",
+
     }
 ];
 
@@ -91,7 +98,7 @@ const ChatBot = () => {
 
         if (result) {
             setResponse(
-                `💡 *${result.name}*:\n${result.description}\n🔗 Link: ${result.url}`
+                `💡 *${result.name}*:\n${result.description}\n🔗 Link: Hit`
             );
         } else {
             setResponse("😕 Sorry, I couldn't find a project related to that.");
