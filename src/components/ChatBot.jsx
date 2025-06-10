@@ -57,6 +57,12 @@ const projects = [
         url: "https://github.com/Rahul-college-use/event-website",
         description: "Responsive event website with event listing and registration functionality.",
     },
+    {
+        name:"About Project Details ",
+        url:"",
+        description:"All Project Name Are :-\nRestaurants-app\nEvent Website\nFake Payment Gateway\nRock-Paper-Scissors-Game\nShopCart\nTic-Tac-Toe-Game\nWeather App\nFinance Tracker\nCheck this enter Project Name "
+        
+    }
 ];
 
 const ChatBot = () => {
