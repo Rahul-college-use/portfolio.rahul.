@@ -5,63 +5,75 @@ const projects = [
     {
         name: "Rahul Kumar",
         url: "https://www.instagram.com/_rahul_x_4u_/",
-        description: "My Name is Rahul. Follow me on Instagram to connect too shortly."
+        description: "My Name is Rahul. Follow me on Instagram to connect too shortly.",
+        tag:"Rahul About Rahul Tell Me your self ",
     },
     {
         name: "First Portfolio Website",
         url: "https://github.com/Rahul-college-use/Portfolio",
         description: "A personal portfolio built with HTML and hosted on GitHub Pages.",
+        tag:"Website",
     },
     {
         name: "Restuarents-app",
         url: "https://github.com/Rahul-college-use/restuarents-app",
         description: "Built using React JS to showcase a list of restaurants with clean UI, navigation, and dynamic content display.",
+        tag:"App"
     },
     {
         name: "PrimeSource News App",
         url: "https://github.com/Rahul-college-use/PrimeSource",
         description: "News aggregation and reading platform fetching latest news from multiple sources with dark mode support.",
+        tag:"App",
     },
     {
         name: "Finance Tracker",
         url: "https://github.com/Rahul-college-use/Finance-Tracker",
         description: "Personal finance management tool built using C++ for tracking income, expenses, and summaries.",
+        tag:"App",
     },
     {
         name: "Weather App",
         url: "https://github.com/rahul-xyz/weather-app",
         description: "Real-time weather app built with React and OpenWeather API.",
+        tag:"App",
     },
     {
         name: "Tic-Tac-Toe-Game",
         url: "https://github.com/Rahul-college-use/-Tic-Tac-Toe-Game",
         description: "Classic Tic-Tac-Toe game with user-friendly interface and basic AI opponent.",
+        tag:"App game",
     },
     {
         name: "ShopCart",
         url: "https://github.com/Rahul-college-use/ShopCart",
         description: "E-commerce shopping cart allowing users to add, remove, and manage products before checkout.",
+        tag:"App shop",
     },
     {
         name: "Rock-Paper-Scissors-Game",
         url: "https://github.com/Rahul-college-use/Rock-Paper-Scissors-Game-",
         description: "Console-based Rock-Paper-Scissors game with interactive gameplay and score tracking.",
+        tag:"App game",
     },
     {
         name: "Fake Payment Gateway",
         url: "https://github.com/rahul-xyz/fake-payment-gateway",
         description: "A real-life styled fake payment system with receipt generation and backend logging.",
+        tag:"App Finance",
     },
     {
         name: "Event Website",
         url: "https://github.com/Rahul-college-use/event-website",
         description: "Responsive event website with event listing and registration functionality.",
+        tag:"website site",
     },
     {
         name:"About Project Details ",
         url:"",
-        description:"All Project Name Are :-\nRestaurants-app\nEvent Website\nFake Payment Gateway\nRock-Paper-Scissors-Game\nShopCart\nTic-Tac-Toe-Game\nWeather App\nFinance Tracker\nCheck this enter Project Name "
-        
+        description:"All Project Name Are :-\nRestaurants-app\nEvent Website\nFake Payment Gateway\nRock-Paper-Scissors-Game\nShopCart\nTic-Tac-Toe-Game\nWeather App\nFinance Tracker\nCheck this enter Project Name ",
+        tag:"App aoubt project",
+
     }
 ];
 
@@ -72,7 +84,7 @@ const ChatBot = () => {
     const handleSearch = () => {
         const lowerQuery = query.toLowerCase();
         const result = projects.find((p) =>
-            [p.name, p.description].some((field) =>
+            [p.name, p.description,p.tag].some((field) =>
                 field.toLowerCase().includes(lowerQuery)
             )
         );
