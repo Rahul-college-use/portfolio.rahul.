@@ -24,7 +24,7 @@ const projects = [
   },
   {
     name: "Weather App",
-    url: "https://github.com/rahul-xyz/weather-app",
+    url: "https://github.com/Rahul-college-use/Weather-App",
     description: "Real-time weather app using OpenWeather API and React.",
   },
   {
