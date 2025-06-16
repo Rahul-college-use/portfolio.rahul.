@@ -13,7 +13,7 @@ const projects = [
         id: 4,
         title: "Fake User Details Fetch",
         description: "A responsive web app that fetches and displays fake user details using an external API.",
-        technologies: ["HTML", "CSS", "JavaScript"],
+        technologies: ["HTML", "CSS", "JavaScript","Random API"],
         image: "https://i.ibb.co/7tJb6t7g/Screenshot-2025-06-16-121822.png",
         details: "Built a responsive web application that fetches random user information from the Random User API and displays details like name, email, phone number, location, date of birth, and profile image. Implemented error handling, UI feedback on button click, copy/select restriction for basic data security, and mobile-friendly design. The project demonstrates DOM manipulation, async API calls, and basic front-end security tricks.",
         link: "https://fake-user-details-fetch.vercel.app/"
