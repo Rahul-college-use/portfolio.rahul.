@@ -1,151 +1,135 @@
 import React, { useState } from 'react';
 import './ChatBot.css';
-
-const projects = [
-    {
-        name: "Rahul Kumar",
-        url: "https://www.instagram.com/_rahul_x_4u_/",
-        description: "My Name is Rahul. Follow me on Instagram to connect too shortly.",
-        tag:"Rahul About Rahul Tell Me your self ",
-    },
-    {
-        name: "First Portfolio Website",
-        url: "https://github.com/Rahul-college-use/Portfolio",
-        description: "A personal portfolio built with HTML and hosted on GitHub Pages.",
-        tag:"Website",
-    },
-    {
-        name: "Restuarents-app",
-        url: "https://github.com/Rahul-college-use/restuarents-app",
-        description: "Built using React JS to showcase a list of restaurants with clean UI, navigation, and dynamic content display.",
-        tag:"App"
-    },
-    {
-        name: "PrimeSource News App",
-        url: "https://github.com/Rahul-college-use/PrimeSource",
-        description: "News aggregation and reading platform fetching latest news from multiple sources with dark mode support.",
-        tag:"App",
-    },
-    {
-        name: "Finance Tracker",
-        url: "https://github.com/Rahul-college-use/Finance-Tracker",
-        description: "Personal finance management tool built using C++ for tracking income, expenses, and summaries.",
-        tag:"App",
-    },
-    {
-        name: "Weather App",
-        url: "https://github.com/rahul-xyz/weather-app",
-        description: "Real-time weather app built with React and OpenWeather API.",
-        tag:"App",
-    },
-    {
-        name: "Tic-Tac-Toe-Game",
-        url: "https://github.com/Rahul-college-use/-Tic-Tac-Toe-Game",
-        description: "Classic Tic-Tac-Toe game with user-friendly interface and basic AI opponent.",
-        tag:"App game",
-    },
-    {
-        name: "ShopCart",
-        url: "https://github.com/Rahul-college-use/ShopCart",
-        description: "E-commerce shopping cart allowing users to add, remove, and manage products before checkout.",
-        tag:"App shop",
-    },
-    {
-        name: "Rock-Paper-Scissors-Game",
-        url: "https://github.com/Rahul-college-use/Rock-Paper-Scissors-Game-",
-        description: "Console-based Rock-Paper-Scissors game with interactive gameplay and score tracking.",
-        tag:"App game",
-    },
-    {
-        name: "Fake Payment Gateway",
-        url: "https://github.com/rahul-xyz/fake-payment-gateway",
-        description: "A real-life styled fake payment system with receipt generation and backend logging.",
-        tag:"App Finance",
-    },
-    {
-        name: "Event Website",
-        url: "https://github.com/Rahul-college-use/event-website",
-        description: "Responsive event website with event listing and registration functionality.",
-        tag:"website site",
-    },
-    {
-        name:"About Project Details ",
-        url:"",
-        description:"All Project Name Are :-\nRestaurants-app\nEvent Website\nFake Payment Gateway\nRock-Paper-Scissors-Game\nShopCart\nTic-Tac-Toe-Game\nWeather App\nFinance Tracker\nCheck this enter Project Name ",
-        tag:"App aoubt project",
-
-    },
-    {
-        name:"Details ",
-        url:"https://wa.me/+919199855936",
-        description:"Hi Dear, \nThis Side ChatBot Form Rahul Side Conncet Me On Whatsapp Hit The Button ",
-        tag:"aoubt project help whatsapp number ",
-
-    }
-];
+import { projects1 } from '../data/Data';
 
 const ChatBot = () => {
     const [query, setQuery] = useState('');
-    const [response, setResponse] = useState('');
+    const [displayedResults, setDisplayedResults] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleSearch = () => {
-        const lowerQuery = query.toLowerCase();
-        const result = projects.find((p) =>
-            [p.name, p.description,p.tag].some((field) =>
-                field.toLowerCase().includes(lowerQuery)
-            )
-        );
+   const handleSearch = async () => {
+    const lowerQuery = query.toLowerCase();
 
-        if (result) {
-            setResponse(
-                `💡 *${result.name}*:\n${result.description}\n🔗 Link: Hit`
-            );
-        } else {
-            setResponse("😕 Sorry, I couldn't find a project related to that.");
+    const filtered = projects1.filter((p) => {
+        // Normalize all tags to lowercase
+        const tags = Array.isArray(p.tag)
+            ? p.tag.map((t) => t.toLowerCase())
+            : [p.tag?.toLowerCase()];
+
+        // 1. Check if query exactly matches a tag
+        const exactMatch = tags.includes(lowerQuery);
+
+        // 2. Check if there's 50%+ tag match by keyword overlap
+        const queryWords = lowerQuery.split(' ');
+        const matchCount = tags.filter((tag) =>
+            queryWords.some((qWord) => tag.includes(qWord))
+        ).length;
+
+        const matchRatio = matchCount / tags.length;
+
+        return exactMatch || matchRatio >= 0.5;
+    });
+
+    setDisplayedResults([]);
+    setIsLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    if (filtered.length > 0) {
+        for (let i = 0; i < filtered.length; i++) {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+            setDisplayedResults((prev) => [...prev, filtered[i]]);
         }
+    }
+
+    setIsLoading(false);
+};
+
+
+    const handleVisit = (url) => {
+        if (url) window.open(url, '_blank');
     };
 
-    const handleVisit = () => {
-        const lowerQuery = query.toLowerCase();
-        const result = projects.find((p) =>
-            [p.name, p.description].some((field) =>
-                field.toLowerCase().includes(lowerQuery)
-            )
-        );
-        if (result) {
-            window.open(result.url, "_blank");
-        }
-    };
+    const tagSuggestions = ['weather', 'finance', 'portfolio', 'about Rahul'];
 
     return (
         <div className="chatbot-container">
             <h2>🤖 Project ChatBot</h2>
+
+            {/* Tag Suggestions */}
+            <div className="chatbot-tags">
+                {tagSuggestions.map((tag, index) => (
+                    <button
+                        key={index}
+                        className="chatbot-tag-btn"
+                        onClick={() => {
+                            setQuery(tag);
+                            handleSearch();
+                        }}
+                    >
+                        #{tag}
+                    </button>
+                ))}
+            </div>
+
+            {/* Input Field */}
             <input
                 type="text"
                 value={query}
                 placeholder="Ask about a project or 'about Rahul'..."
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 className="chatbot-input"
             />
+
+            {/* Ask Button */}
             <button onClick={handleSearch} className="chatbot-button">Ask</button>
 
-            {!response && (
+            {/* Loading Indicator */}
+            {isLoading && (
+                <div className="chatbot-response typing" style={{ color: "gray" }}>
+                    ⌛ Thinking...
+                </div>
+            )}
+
+            {/* Hint Message */}
+            {!isLoading && displayedResults.length === 0 && (
                 <div className="chatbot-hint">
                     💬 Try: "weather", "finance", "portfolio", "about Rahul"
                 </div>
             )}
 
-            {response && (
-                <div className="chatbot-response" style={{color:"black"}}>
-                    {response.split('\n').map((line, idx) => (
-                        <p key={idx}>{line}</p>
-                    ))}
-                    <button onClick={handleVisit} className="chatbot-visit">
-                        🔗 Visit Link
-                    </button>
-                </div>
-            )}
+            {/* Results */}
+            <div className="chatbot-response" style={{ color: "black" }}>
+                {displayedResults.map((result, idx) => (
+                    <div key={idx} className="chatbot-result">
+                        <p>🔹 <strong>{idx + 1}. {result.name}</strong></p>
+                        <p>📝 {result.description}</p>
+
+                        {Array.isArray(result.tag) && (
+                            <div className="chatbot-tags-inline">
+                                {result.tag.map((t, i) => (
+                                    <span key={i} className="chatbot-tag-chip">#{t}</span>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="chatbot-links">
+                            {result.url && (
+                                <button onClick={() => handleVisit(result.url)} className="chatbot-visit">
+                                    🔗 Visit Link
+                                </button>
+                            )}
+                            {result.vercel && (
+                                <a href={result.vercel} target="_blank" rel="noopener noreferrer" className="chatbot-vercel">
+                                    ▲ View on Vercel
+                                </a>
+                            )}
+                        </div>
+                        <hr />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

@@ -149,3 +149,48 @@ body.dark-mode .theme-toggle-btn:hover {
   background-color: #9f6efd;
 }
 
+.profile-image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile-image.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.datetime {
+  font-size: 14px;
+  margin-top: 5px;
+  color: gray;
+}
+
+.image-skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(100deg, #ccc 30%, #e1e1e1 50%, #ccc 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
