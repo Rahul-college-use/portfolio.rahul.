@@ -35,16 +35,16 @@ const Projects = ({darkMode}) => {
             link: "https://prime-source-ttt.vercel.app/"
         },
 
-        {
-            id: 1,
-            title: "Resturarent Platform",
-            description: "A full-stack Resturarents application with payment integration",
-            technologies: ["React", "Node.js"],
-            //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-            image: 'https://i.ibb.co/vCTZfsPR/Screenshot-2025-06-08-154500.png',
-            details: "Developed a complete Resturarents solution with user authentication...",
-            link: "https://restuarents-app-h-git-main-rahul-college-uses-projects.vercel.app/"
-        }
+       {
+  id: 1,
+  title: "Restaurant Platform",
+  description: "A full-stack restaurant application with payment gateway integration.",
+  technologies: ["React", "Node.js"],
+  image: "https://i.ibb.co/vCTZfsPR/Screenshot-2025-06-08-154500.png",
+  details: "Designed and developed a full-stack restaurant web platform that allows users to browse menus, place orders, and complete payments securely. Implemented user authentication, dynamic menu rendering, and interactive cart functionality. Integrated a secure payment gateway for smooth checkout experience. Built using React on the frontend and Node.js on the backend with full responsiveness across devices. Ensured real-time updates, validation, and smooth UX across the application.",
+  link: "https://restuarents-app-h-git-main-rahul-college-uses-projects.vercel.app/"
+}
+
 
         // Add more projects as needed
     ]);
