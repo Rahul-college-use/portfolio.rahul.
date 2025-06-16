@@ -5,16 +5,25 @@ import './Projects.css';
 const Projects = ({darkMode}) => {
     // Initialize with empty array if undefined
     const [projects] = useState([
-        {
-            id: 3,
-            title: "Weather Application Platform",
-            description: "Weather  application real time Report  integration",
-            technologies: ["React", "Node.js","newsApi"],
-            //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-            image: 'https://i.ibb.co/DHKMM9Ht/brave-screenshot-localhost.png',
-            details: "Developed a complete Weather App...",
-            link: "https://weather-app-8xf6.vercel.app/"
-        },
+           {
+  id: 3,
+  title: "Weather Application Platform",
+  description: "A real-time weather application with live data using Weather API.",
+  technologies: ["React", "Node.js", "WeatherAPI"],
+  image: "https://i.ibb.co/DHKMM9Ht/brave-screenshot-localhost.png",
+  details: "Designed and developed a responsive weather application that provides real-time weather updates based on user input. Utilized React for frontend rendering, WeatherAPI for live data fetching, and Node.js for integration. The app includes features like current temperature, humidity, wind speed, weather icons, and animated UI elements. Added support for city search, error handling, and dark/light theme toggle. Optimized for both mobile and desktop screens.",
+  link: "https://weather-app-8xf6.vercel.app/"
+},
+      {
+  id: 4,
+  title: "Fake User Details Fetch",
+  description: "A responsive web app that fetches and displays fake user details using an external API.",
+  technologies: ["HTML", "CSS", "JavaScript"],
+  image: "https://i.ibb.co/7tJb6t7g/Screenshot-2025-06-16-121822.png",
+  details: "Built a responsive web application that fetches random user information from the Random User API and displays details like name, email, phone number, location, date of birth, and profile image. Implemented error handling, UI feedback on button click, copy/select restriction for basic data security, and mobile-friendly design. The project demonstrates DOM manipulation, async API calls, and basic front-end security tricks.",
+  link: "https://fake-user-details-fetch.vercel.app/"
+},
+    
         {
             id: 2,
             title: "News Platform",
