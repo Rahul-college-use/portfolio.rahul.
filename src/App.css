@@ -9,6 +9,10 @@
   --text-light: #7f8c8d;
 }
 
+html {
+  scroll-behavior: smooth;
+  cursor: url('/public/cursor-12502.png'), auto;
+}
 * {
   margin: 0;
   padding: 0;
