@@ -7,27 +7,17 @@ const ChatBot = () => {
     const [displayedResults, setDisplayedResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-   const handleSearch = async () => {
-    const lowerQuery = query.toLowerCase();
+   const handleSearch = async (customQuery) => {
+    const searchTerm = customQuery || query;
+    const lowerQuery = searchTerm.toLowerCase();
+    console.log(lowerQuery);
 
     const filtered = projects1.filter((p) => {
-        // Normalize all tags to lowercase
         const tags = Array.isArray(p.tag)
             ? p.tag.map((t) => t.toLowerCase())
             : [p.tag?.toLowerCase()];
 
-        // 1. Check if query exactly matches a tag
-        const exactMatch = tags.includes(lowerQuery);
-
-        // 2. Check if there's 50%+ tag match by keyword overlap
-        const queryWords = lowerQuery.split(' ');
-        const matchCount = tags.filter((tag) =>
-            queryWords.some((qWord) => tag.includes(qWord))
-        ).length;
-
-        const matchRatio = matchCount / tags.length;
-
-        return exactMatch || matchRatio >= 0.5;
+        return tags.includes(lowerQuery);
     });
 
     setDisplayedResults([]);
@@ -64,8 +54,9 @@ const ChatBot = () => {
                         className="chatbot-tag-btn"
                         onClick={() => {
                             setQuery(tag);
-                            handleSearch();
+                            handleSearch(tag);
                         }}
+                        
                     >
                         #{tag}
                     </button>

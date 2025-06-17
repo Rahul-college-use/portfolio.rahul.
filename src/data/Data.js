@@ -49,7 +49,7 @@ const projects1 = [
     name: "Rahul Kumar",
     url: "https://www.instagram.com/_rahul_x_4u_/",
     description: "My Name is Rahul. Follow me on Instagram to connect too shortly.",
-    tag: ["about", "rahul", "about rahul", "creator", "me"],
+    tag: ["about", "Rahul", "about rahul", "creator", "me"],
     vercel: "",
   },
   {
@@ -135,14 +135,13 @@ const projects1 = [
     url: "https://wa.me/+919199855936",
     description:
       "Hi Dear,\nThis Side ChatBot From Rahul.\nConnect With Me On WhatsApp — Hit The Button.",
-    tag: ["whatsapp", "help", "contact", "chat", "connect"],
+    tag: ["whatsapp", "help", "contact", "chat", "connect","about Rahul"],
     vercel: "",
   },
   {
     name: "Fake User Details",
     url: "https://github.com/Rahul-college-use/Fake_User_details_fetch",
-    description:
-      "Generates random user profiles including name, gender, location, picture, and more using the Random User Generator API.",
+    description:"Generates random user profiles including name, gender, location, picture, and more using the Random User Generator API.",
     tag: ["api", "random user", "generator", "fake users", "user details"],
     vercel: "https://fake-user-details-fetch.vercel.app/",
   },

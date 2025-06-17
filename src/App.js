@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTopWithChatbot';
 import GitHubProjects from './components/GitHubProjects';
 import ScrollToTop2 from './components/ScrollToTop2';
 import Offline from './components/Offline';
+import SecurityBlocker from './components/SecurityBlocker';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -47,7 +48,9 @@ function App() {
   }
 
   return (
+
     <div className="portfolio-container">
+      <SecurityBlocker/>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Background darkMode={darkMode} />
       <Projects darkMode={darkMode} />
