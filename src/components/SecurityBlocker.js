@@ -4,18 +4,18 @@ import Swal from 'sweetalert2';
 
 const SecurityBlocker = () => {
   useEffect(() => {
-    const notificationSound = new Audio('/notification.mp3'); // put this file in public/
+    // const notificationSound = new Audio('/notification.mp3'); // put this file in public/
 
-    const playNotification = () => {
-      notificationSound.currentTime = 0;
-      notificationSound.play().catch(() => {
-        // autoplay restriction
-        console.warn('Sound blocked until user interacts with the page');
-      });
-    };
+    // const playNotification = () => {
+    //   notificationSound.currentTime = 0;
+    //   notificationSound.play().catch(() => {
+    //     // autoplay restriction
+    //     console.warn('Sound blocked until user interacts with the page');
+    //   });
+    // };
 
     const showToast = (eventName) => {
-      playNotification();
+      // playNotification();
       Swal.fire({
         icon: 'warning',
         title: 'Action Blocked',
@@ -28,7 +28,7 @@ const SecurityBlocker = () => {
     };
 
     const showDevToolsAlert = () => {
-      playNotification();
+      // playNotification();
       Swal.fire({
         icon: 'error',
         title: 'DevTools Blocked',
