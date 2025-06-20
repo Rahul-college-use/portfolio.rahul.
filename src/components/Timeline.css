@@ -1,0 +1,115 @@
+.timeline-section {
+  padding: 50px 20px;
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.timeline-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #2563eb;
+}
+
+.timeline-container {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 20px;
+  max-width: 700px;
+  border-left: 4px solid #2563eb;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: -11px;
+  width: 20px;
+  height: 20px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1e40af;
+}
+
+.timeline-content h4 {
+  margin: 5px 0;
+  color: #111827;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #374151;
+  font-size: 15px;
+}
+
+/* Special timeline start/end markers */
+.timeline-marker {
+  text-align: center;
+  margin: 40px 0;
+  position: relative;
+}
+
+.timeline-marker::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  border: 3px solid white;
+}
+
+.marker-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1e40af;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .timeline-container {
+    padding-left: 15px;
+  }
+
+  .timeline-dot {
+    left: -9px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+  }
+
+  .marker-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-marker::before {
+    width: 12px;
+    height: 12px;
+  }
+}
