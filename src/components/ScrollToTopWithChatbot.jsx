@@ -20,7 +20,8 @@ const ScrollToTopWithChatbot = ({ mode }) => {
         <span className="chat-badge">💬</span>
       </div>
 
-      <div className={`chatbot-sidebar ${chatbotOpen ? 'open' : ''}`}>
+      <div className={`chatbot-sidebar ${chatbotOpen ? 'open' : ''} ${mode==='light'?'bg-color':''}` }>
+        {console.log(mode)}
         <button onClick={toggleChatbot} className="close-btn">✖</button>
         <ChatBot mode={mode} /> {/* ✅ pass mode here */}
       </div>

@@ -55,6 +55,9 @@
 .chatbot-sidebar.open {
   right: 0;
 }
+.chatbot-sidebar.bg-color {
+  background-color: #ccc;
+}
 
 /* ❌ Close Button */
 .close-btn {
