@@ -14,8 +14,12 @@ const Header = ({ darkMode, toggleDarkMode }) => {
   }, []);
 
   const profileImageUrl = darkMode
-    ? 'https://i.ibb.co/Gv1T33nt/Whats-App-Image-2025-06-05-at-21-21-03-e0ff578d.jpg'
+    ? 'https://i.ibb.co/BHL13Ygr/502349514-18031885781679541-7069903802214821239-n.jpg'
     : 'https://avatars.githubusercontent.com/u/181213962?v=4';
+
+  // const profileImageUrl = darkMode
+  //   ? 'https://i.ibb.co/Gv1T33nt/Whats-App-Image-2025-06-05-at-21-21-03-e0ff578d.jpg'
+  //   : 'https://avatars.githubusercontent.com/u/181213962?v=4';
 
   return (
     <header className="portfolio-header" style={darkMode ? { background: "#1F2932" } : {}}>
