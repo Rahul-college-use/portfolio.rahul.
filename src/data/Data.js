@@ -70,17 +70,11 @@ const projects1 = [
     name: "News-App",
     url: "https://github.com/Rahul-college-use/News",
     description: "A dynamic News App built with React JS and NewsData.io API, featuring category filtering, language selection, country-wise news, and source dropdown support.",
-    tag: ["react", "news", "api", "newsdata.io", "project"],
+    tag: ["react", "news", "api", "newsdata.io", "project ","news", "app", "dark mode", "prime source"],
     vercel: "https://news-flame-one.vercel.app/",
   }
   ,
-  {
-    name: "PrimeSource News App",
-    url: "https://github.com/Rahul-college-use/PrimeSource",
-    description: "News aggregation and reading platform fetching latest news from multiple sources with dark mode support.",
-    tag: ["news", "app", "dark mode", "prime source"],
-    vercel: "https://prime-source-ttt.vercel.app/",
-  },
+  
   {
     name: "Finance Tracker",
     url: "https://github.com/Rahul-college-use/Finance-Tracker",

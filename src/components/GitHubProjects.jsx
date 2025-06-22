@@ -14,7 +14,7 @@ const projects = [
   },
   {
     name: "PrimeSource News App",
-    url: "https://github.com/Rahul-college-use/PrimeSource",
+    url: "https://github.com/Rahul-college-use/News",
     description: "News aggregation and reading platform. Developed a news app to fetch and display latest news from multiple sources with user-friendly interface and dark mode support.",
   },
   {
