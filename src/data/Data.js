@@ -25,9 +25,9 @@ const projects = [
         description: "A full-stack Prime News  application with payment integration",
         technologies: ["React", "Node.js", "newsApi"],
         //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-        image: 'https://i.ibb.co/ZRXNbXWs/Screenshot-2025-06-08-163813.png',
+        image: 'https://i.ibb.co/Q3kTBWvS/image.png',
         details: "Developed a complete News solution...",
-        link: "https://prime-source-ttt.vercel.app/"
+        link: "https://news-flame-one.vercel.app/"
     },
 
     {
