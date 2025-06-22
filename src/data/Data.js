@@ -1,47 +1,47 @@
 
 const projects = [
-    {
-        id: 3,
-        title: "Weather Application Platform",
-        description: "A real-time weather application with live data using Weather API.",
-        technologies: ["React", "Node.js", "WeatherAPI"],
-        image: "https://i.ibb.co/DHKMM9Ht/brave-screenshot-localhost.png",
-        details: "Designed and developed a responsive weather application that provides real-time weather updates based on user input. Utilized React for frontend rendering, WeatherAPI for live data fetching, and Node.js for integration. The app includes features like current temperature, humidity, wind speed, weather icons, and animated UI elements. Added support for city search, error handling, and dark/light theme toggle. Optimized for both mobile and desktop screens.",
-        link: "https://weather-app-8xf6.vercel.app/"
-    },
-    {
-        id: 4,
-        title: "Fake User Details Fetch",
-        description: "A responsive web app that fetches and displays fake user details using an external API.",
-        technologies: ["HTML", "CSS", "JavaScript","Random API"],
-        image: "https://i.ibb.co/7tJb6t7g/Screenshot-2025-06-16-121822.png",
-        details: "Built a responsive web application that fetches random user information from the Random User API and displays details like name, email, phone number, location, date of birth, and profile image. Implemented error handling, UI feedback on button click, copy/select restriction for basic data security, and mobile-friendly design. The project demonstrates DOM manipulation, async API calls, and basic front-end security tricks.",
-        link: "https://fake-user-details-fetch.vercel.app/"
-    },
+  {
+    id: 3,
+    title: "Weather Application Platform",
+    description: "A real-time weather application with live data using Weather API.",
+    technologies: ["React", "Node.js", "WeatherAPI"],
+    image: "https://i.ibb.co/DHKMM9Ht/brave-screenshot-localhost.png",
+    details: "Designed and developed a responsive weather application that provides real-time weather updates based on user input. Utilized React for frontend rendering, WeatherAPI for live data fetching, and Node.js for integration. The app includes features like current temperature, humidity, wind speed, weather icons, and animated UI elements. Added support for city search, error handling, and dark/light theme toggle. Optimized for both mobile and desktop screens.",
+    link: "https://weather-app-8xf6.vercel.app/"
+  },
+  {
+    id: 4,
+    title: "Fake User Details Fetch",
+    description: "A responsive web app that fetches and displays fake user details using an external API.",
+    technologies: ["HTML", "CSS", "JavaScript", "Random API"],
+    image: "https://i.ibb.co/7tJb6t7g/Screenshot-2025-06-16-121822.png",
+    details: "Built a responsive web application that fetches random user information from the Random User API and displays details like name, email, phone number, location, date of birth, and profile image. Implemented error handling, UI feedback on button click, copy/select restriction for basic data security, and mobile-friendly design. The project demonstrates DOM manipulation, async API calls, and basic front-end security tricks.",
+    link: "https://fake-user-details-fetch.vercel.app/"
+  },
 
-    {
-        id: 2,
-        title: "News Platform",
-        description: "A full-stack Prime News  application with payment integration",
-        technologies: ["React", "Node.js", "newsApi"],
-        //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-        image: 'https://i.ibb.co/Q3kTBWvS/image.png',
-        details: "Developed a complete News solution...",
-        link: "https://news-flame-one.vercel.app/"
-    },
+  {
+    id: 2,
+    title: "News Platform",
+    description: "A full-stack Prime News  application with payment integration",
+    technologies: ["React", "Node.js", "newsApi"],
+    //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
+    image: 'https://i.ibb.co/Q3kTBWvS/image.png',
+    details: "Developed a complete News solution...",
+    link: "https://news-flame-one.vercel.app/"
+  },
 
-    {
-        id: 1,
-        title: "Restaurant Platform",
-        description: "A full-stack restaurant application with payment gateway integration.",
-        technologies: ["React", "Node.js"],
-        image: "https://i.ibb.co/vCTZfsPR/Screenshot-2025-06-08-154500.png",
-        details: "Designed and developed a full-stack restaurant web platform that allows users to browse menus, place orders, and complete payments securely. Implemented user authentication, dynamic menu rendering, and interactive cart functionality. Integrated a secure payment gateway for smooth checkout experience. Built using React on the frontend and Node.js on the backend with full responsiveness across devices. Ensured real-time updates, validation, and smooth UX across the application.",
-        link: "https://restuarents-app-h-git-main-rahul-college-uses-projects.vercel.app/"
-    }
+  {
+    id: 1,
+    title: "Restaurant Platform",
+    description: "A full-stack restaurant application with payment gateway integration.",
+    technologies: ["React", "Node.js"],
+    image: "https://i.ibb.co/vCTZfsPR/Screenshot-2025-06-08-154500.png",
+    details: "Designed and developed a full-stack restaurant web platform that allows users to browse menus, place orders, and complete payments securely. Implemented user authentication, dynamic menu rendering, and interactive cart functionality. Integrated a secure payment gateway for smooth checkout experience. Built using React on the frontend and Node.js on the backend with full responsiveness across devices. Ensured real-time updates, validation, and smooth UX across the application.",
+    link: "https://restuarents-app-h-git-main-rahul-college-uses-projects.vercel.app/"
+  }
 
 
-    // Add more projects as needed
+  // Add more projects as needed
 ];
 
 const projects1 = [
@@ -66,6 +66,14 @@ const projects1 = [
     tag: ["react", "restaurant", "app", "menu", "projects"],
     vercel: "https://restuarents-app-h-git-main-rahul-college-uses-projects.vercel.app/",
   },
+  {
+    name: "News-App",
+    url: "https://github.com/Rahul-college-use/News",
+    description: "A dynamic News App built with React JS and NewsData.io API, featuring category filtering, language selection, country-wise news, and source dropdown support.",
+    tag: ["react", "news", "api", "newsdata.io", "project"],
+    vercel: "https://news-flame-one.vercel.app/",
+  }
+  ,
   {
     name: "PrimeSource News App",
     url: "https://github.com/Rahul-college-use/PrimeSource",
@@ -135,13 +143,13 @@ const projects1 = [
     url: "https://wa.me/+919199855936",
     description:
       "Hi Dear,\nThis Side ChatBot From Rahul.\nConnect With Me On WhatsApp — Hit The Button.",
-    tag: ["whatsapp", "help", "contact", "chat", "connect","about Rahul"],
+    tag: ["whatsapp", "help", "contact", "chat", "connect", "about Rahul"],
     vercel: "",
   },
   {
     name: "Fake User Details",
     url: "https://github.com/Rahul-college-use/Fake_User_details_fetch",
-    description:"Generates random user profiles including name, gender, location, picture, and more using the Random User Generator API.",
+    description: "Generates random user profiles including name, gender, location, picture, and more using the Random User Generator API.",
     tag: ["api", "random user", "generator", "fake users", "user details"],
     vercel: "https://fake-user-details-fetch.vercel.app/",
   },
