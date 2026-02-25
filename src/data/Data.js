@@ -1,6 +1,15 @@
 
 const projects = [
   {
+    id: 4,
+    title: "Gallery Project",
+    description: "A responsive web app that fetches and displays gallery images using an external API.",
+    technologies: ["React", "Tailwind CSS", "JavaScript", "Lorem API"],
+    image: "https://i.ibb.co/5DJRrXK/Screenshot-2026-02-25-225317.png",
+    details: "Built a responsive web application that fetches random user information from the Random User API and displays details like name, email, phone number, location, date of birth, and profile image. Implemented error handling, UI feedback on button click, copy/select restriction for basic data security, and mobile-friendly design. The project demonstrates DOM manipulation, async API calls, and basic front-end security tricks.",
+    link: "https://gallery-project-ki5y.vercel.app/"
+  },
+  {
     id: 3,
     title: "Weather Application Platform",
     description: "A real-time weather application with live data using Weather API.",

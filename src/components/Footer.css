@@ -1,57 +1,91 @@
 .portfolio-footer {
-  background-color: #1e293b; /* dark blue-gray */
-  color: #cbd5e1; /* light gray */
-  padding: 30px 20px;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000c1f; /* Deep Space Blue */
+  color: #fff;
+  padding-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  line-height: 0;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100px;
+  fill: url(#spaceGradient);
+  filter: drop-shadow(0 0 0px #00c6ff);
+  transition: transform 0.5s ease;
+}
+
+.wave1 {
+  animation: orbit1 10s linear infinite;
+  opacity: 0.8;
+  z-index: 3;
+}
+
+.wave2 {
+  animation: orbit2 15s linear infinite reverse;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.wave3 {
+  animation: orbit3 20s linear infinite;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.wave:hover {
+  transform: scale(1.05);
+}
+
+/* Orbital Animations (Simulating Orbit Motion) */
+@keyframes orbit1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes orbit2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes orbit3 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .footer-content {
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
 .contact-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #60a5fa; /* soft blue */
-}
-
-.contact-info p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #94a3b8; /* medium gray */
-}
-
-.social-links {
-  margin-top: 15px;
+  margin-bottom: 1rem;
 }
 
 .social-links a {
-  color: #60a5fa;
-  margin: 0 12px;
+  color: #00c6ff;
+  margin: 0 10px;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #93c5fd; /* lighter blue on hover */
   text-decoration: underline;
 }
 
-.copyright p {
-  margin-top: 25px;
-  font-size: 0.9rem;
-  color: #64748b; /* subdued gray */
-}
-
-@media (max-width: 480px) {
-  .contact-info h3 {
-    font-size: 1.4rem;
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .footer-content {
+    padding: 1.5rem 1rem;
   }
+  .contact-info p,
   .social-links a {
-    margin: 0 8px;
     font-size: 0.9rem;
   }
 }

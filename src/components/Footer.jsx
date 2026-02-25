@@ -4,6 +4,30 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer id="contact" className="portfolio-footer">
+      {/* Space Gradient Definition */}
+      <svg width="0" height="0">
+        <defs>
+          <linearGradient id="spaceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#00c6ff" />
+            <stop offset="50%" stopColor="#0072ff" />
+            <stop offset="100%" stopColor="#001e3c" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Orbital Wave Layers */}
+      <div className="wave-container">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="wave wave1">
+          <path d="M0,40 Q150,0 300,40 T600,40 T900,40 T1200,40 L1200,0 L0,0 Z" />
+        </svg>
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="wave wave2">
+          <path d="M0,40 Q150,0 300,40 T600,40 T900,40 T1200,40 L1200,0 L0,0 Z" />
+        </svg>
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="wave wave3">
+          <path d="M0,40 Q150,0 300,40 T600,40 T900,40 T1200,40 L1200,0 L0,0 Z" />
+        </svg>
+      </div>
+
       <div className="footer-content">
         <div className="contact-info">
           <h3>Get In Touch</h3>
