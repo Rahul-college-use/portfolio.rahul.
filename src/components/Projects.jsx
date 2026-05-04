@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Project from './Project';
 import './Projects.css';
-import allProjects from '../data/Data';
+// import allProjects from '../data/Data';
 
 const Projects = ({ darkMode }) => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -12,8 +12,25 @@ const Projects = ({ darkMode }) => {
   // Simulate loading delay (2 seconds)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setProjects(allProjects);
-      setLoading(false);
+      fetch('https://portfolio-rahul-api.vercel.app/data',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log("Fetched projects:", data);
+          setProjects(data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error("Error fetching projects:", err);
+          setProjects([]); // fallback to empty array on error
+          setLoading(false);
+        });
+      // setProjects(allProjects);
+      // setLoading(false);
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -48,7 +65,7 @@ const Projects = ({ darkMode }) => {
         <div className="project-modal">
           <div className="modal-content">
             <h3>{selectedProject.title}</h3>
-            <img src={selectedProject.image} alt={selectedProject.title} />
+            <img src={selectedProject.imageUrl}  alt={selectedProject.title} /> 
             <p>{selectedProject.details}</p>
             <button onClick={() => window.open(selectedProject.link, '_blank')}>
               🔗 Visit Project

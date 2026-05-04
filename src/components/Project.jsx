@@ -22,12 +22,12 @@ const Project = ({ project, onClick }) => {
     title = "Untitled Project",
     description = "No description available",
     technologies = [],
-    image = "https://via.placeholder.com/400x250?text=Project+Image"
+    // image = "https://via.placeholder.com/400x250?text=Project+Image"
   } = project;
 
   return (
     <div className="project-card" onClick={onClick}>
-      <img src={image} alt={title} />
+      <img src={project.imageUrl}  alt={title} /> 
       <div className="project-info">
         <h3>{title}</h3>
         <p>{description}</p>
