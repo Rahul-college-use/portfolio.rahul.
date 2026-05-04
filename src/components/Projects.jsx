@@ -21,7 +21,7 @@ const Projects = ({ darkMode }) => {
         .then(res => res.json())
         .then(data => {
           console.log("Fetched projects:", data);
-          setProjects(data);
+          setProjects([...data].reverse()); // reverse to show latest first
           setLoading(false);
         })
         .catch(err => {
