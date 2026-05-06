@@ -1,43 +1,45 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Project from './Project';
 import './Projects.css';
-// import allProjects from '../data/Data';
 
 const Projects = ({ darkMode }) => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [projects, setProjects] = useState([]); // initially empty
-  const [loading, setLoading] = useState(true); // loading shimmer
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(""); // ✅ FIXED (state instead of variable)
+
   const projectsContainerRef = useRef(null);
 
-  // Simulate loading delay (2 seconds)
   useEffect(() => {
     const timer = setTimeout(() => {
-      fetch('https://portfolio-rahul-api.vercel.app/data',{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(res => res.json())
+      fetch('https://portfolio-rahul-api.vercel.app/data')
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
         .then(data => {
-          console.log("Fetched projects:", data);
-          setProjects([...data].reverse()); // reverse to show latest first
+          // ✅ Safe handling if API structure changes
+          const formattedData = Array.isArray(data) ? data : [];
+
+          setProjects([...formattedData].reverse());
           setLoading(false);
         })
         .catch(err => {
           console.error("Error fetching projects:", err);
-          setProjects([]); // fallback to empty array on error
+          setError("Failed to load projects. Please try again later.");
+          setProjects([]);
           setLoading(false);
         });
-      // setProjects(allProjects);
-      // setLoading(false);
-    }, 2000);
+    }, 2000); // keep shimmer delay
+
     return () => clearTimeout(timer);
   }, []);
 
   const renderProjects = () => {
-    // While loading, show shimmer cards
-    const skeletons = new Array(4).fill(null); // 4 shimmer cards
+    const skeletons = new Array(4).fill(null);
+
     return (loading ? skeletons : projects).map((project, index) => (
       <Project
         key={project?.id || index}
@@ -57,20 +59,44 @@ const Projects = ({ darkMode }) => {
         My Projects
       </h2>
 
+      {/* Error Message */}
+      <div style={{textAlign:'center'}}>
+        <h2 style={{color:'red'}}>
+      { error && <p className="error-message">API not responding: {error}</p>}
+
+        </h2>
+
+      </div>
+
       <div className="projects-container" ref={projectsContainerRef}>
         <div className="projects-track">{renderProjects()}</div>
       </div>
 
+      {/* Modal */}
       {selectedProject && (
         <div className="project-modal">
           <div className="modal-content">
             <h3>{selectedProject.title}</h3>
-            <img src={selectedProject.imageUrl}  alt={selectedProject.title} /> 
+
+            {/* fallback for image field */}
+            <img
+              src={selectedProject.imageUrl || selectedProject.image}
+              alt={selectedProject.title}
+            />
+
             <p>{selectedProject.details}</p>
-            <button onClick={() => window.open(selectedProject.link, '_blank')}>
+
+            <button
+              onClick={() =>
+                window.open(selectedProject.link, '_blank')
+              }
+            >
               🔗 Visit Project
             </button>
-            <button onClick={() => setSelectedProject(null)}>❌ Close</button>
+
+            <button onClick={() => setSelectedProject(null)}>
+              ❌ Close
+            </button>
           </div>
         </div>
       )}
