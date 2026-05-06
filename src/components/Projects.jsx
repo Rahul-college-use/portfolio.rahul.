@@ -27,7 +27,7 @@ const Projects = ({ darkMode }) => {
           setLoading(false);
         })
         .catch(err => {
-          console.error("Error fetching projects:", err);
+          // console.error("Error fetching projects:", err);
           setError("Failed to load projects. Please try again later.");
           setProjects([]);
           setLoading(false);
