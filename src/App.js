@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Background from './components/Background';
-import Timeline from './components/Timeline';
-import Projects from './components/Projects';
-import GitHubProjects from './components/GitHubProjects';
-import Achievements from './components/Achievements';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTopWithChatbot';
-import Offline from './components/Offline';
+import Header from './components/Header.jsx';
+import Background from './components/Background.jsx';
+import Timeline from './components/Timeline.jsx';
+import Projects from './components/Projects.jsx';
+import GitHubProjects from './components/GitHubProjects.jsx';
+import Achievements from './components/Achievements.jsx';
+import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTopWithChatbot.jsx';
+// import Offline from './components/Offline';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {

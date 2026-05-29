@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChatBot from './ChatBot';
+import ChatBot from './ChatBot.jsx';
 import './ScrollToTop.css';
 
 const ScrollToTopWithChatbot = () => {
