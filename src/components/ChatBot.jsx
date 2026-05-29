@@ -114,7 +114,7 @@ const ChatBot = () => {
 
         {!isLoading && displayedResults.length === 0 && (
           <div className="chatbot-idle-hint-box">
-            <p className="hint-text">// Standby. Input terminal parameters or tap a macro hashtag above to parse indexes.</p>
+            <p className="hint-text">Standby. Input terminal parameters or tap a macro hashtag above to parse indexes.</p>
           </div>
         )}
 
