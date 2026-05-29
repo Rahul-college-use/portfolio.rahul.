@@ -5,7 +5,11 @@ const Background = ({ darkMode }) => {
   const studentImageUrl = "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
 
   // Cleaned up the leading typo "s" from your original text string
-  const fullText = `My journey in computer science began in 2023, driven by curiosity about how technology works. Since then, I’ve explored programming, built full-stack projects, and developed a core passion for engineering solutions. It’s been an incredible path of learning, challenges, and growth — and I’m excited to keep pushing the boundaries of what I can build.`;
+  const fullText = ` My journey in computer science began in 2023, fueled by a deep curiosity about how technology works and how software shapes the world around us. Since then, I’ve explored various programming languages, strengthened my problem-solving skills, and built full-stack applications that combine functionality with user-focused design. Along the way, I’ve developed a strong passion for software engineering and creating practical solutions to real-world problems.
+
+Each project and challenge has helped me grow both technically and creatively, teaching me the importance of consistency, adaptability, and continuous learning in tech. From frontend development with React and Tailwind CSS to backend development using Node.js, databases, and APIs, I enjoy transforming ideas into complete digital experiences.
+
+What started as curiosity has now become a long-term commitment to learning, building, and innovating. I’m constantly exploring new technologies, improving my development skills, and pushing myself to create better and more impactful solutions every day. I’m excited to continue this journey, contribute to open source projects, and collaborate with other developers to make a positive impact through technology. I’m eager to see where this path takes me and how I can contribute to the ever-evolving world of software development. I’m passionate about using technology to solve problems and create meaningful experiences, and I look forward to the opportunities and challenges that lie ahead in my software engineering career. I’m committed to continuous learning and growth, and I’m excited to see where this journey takes me in the world of software development. `;
   
   const [displayedText, setDisplayedText] = useState('');
   const [typing, setTyping] = useState(true);
@@ -103,7 +107,7 @@ useEffect(() => {
                   <div className="meta-item full-width">
                     <span className="meta-label">Core Tech Stack:</span>
                     <div className="tech-tags-group">
-                      {['JavaScript', 'React', 'Node.js', 'Express.js', 'Python', 'MySQL', 'Java', 'C/C++'].map(tech => (
+                      {['JavaScript', 'React', 'Node.js', 'Express.js', 'MongoDB', 'Python', 'MySQL', 'Java', 'C/C++'].map(tech => (
                         <span key={tech} className="tech-pill">{tech}</span>
                       ))}
                     </div>
