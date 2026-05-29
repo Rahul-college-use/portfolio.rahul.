@@ -9,7 +9,7 @@ const Background = ({ darkMode }) => {
 
 Each project and challenge has helped me grow both technically and creatively, teaching me the importance of consistency, adaptability, and continuous learning in tech. From frontend development with React and Tailwind CSS to backend development using Node.js, databases, and APIs, I enjoy transforming ideas into complete digital experiences.
 
-What started as curiosity has now become a long-term commitment to learning, building, and innovating. I’m constantly exploring new technologies, improving my development skills, and pushing myself to create better and more impactful solutions every day. I’m excited to continue this journey, contribute to open source projects, and collaborate with other developers to make a positive impact through technology. I’m eager to see where this path takes me and how I can contribute to the ever-evolving world of software development. I’m passionate about using technology to solve problems and create meaningful experiences, and I look forward to the opportunities and challenges that lie ahead in my software engineering career. I’m committed to continuous learning and growth, and I’m excited to see where this journey takes me in the world of software development. `;
+I’m committed to continuous learning and growth, and I’m excited to see where this journey takes me in the world of software development. `;
   
   const [displayedText, setDisplayedText] = useState('');
   const [typing, setTyping] = useState(true);
