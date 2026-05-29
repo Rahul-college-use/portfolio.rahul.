@@ -1,67 +1,192 @@
+/* ==========================================
+   Achievements Grid Section Container
+   ========================================== */
 .achievements-section {
-  padding: 30px 25px;
-  background-color: #f9fafb;
-  color: #222;
-  /* max-width: 1000px; */
-  margin: 0 auto;
-  transition: background-color 0.5s ease;
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.achievements-section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  font-weight: 700;
-  color: #334e68;
-}
-
-.achievements-grid {
+/* ==========================================
+   📊 High-Tech Accomplishment Grid Layout
+   ========================================== */
+.achievements-matrix-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
 }
 
-.achievement-card {
-  background-color: #fff;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+.achievement-terminal-card {
+  background: var(--panel-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.achievement-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+.achievement-terminal-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.15);
+  transform: translateY(-4px);
 }
 
-.achievement-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
+/* Subtly shines the internal vector graphic logo upwards when checking individual items */
+.achievement-terminal-card:hover .trophy-glow-icon {
+  color: #f59e0b;
+  transform: scale(1.08) rotate(5deg);
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+}
+
+/* ==========================================
+   🎛️ Header Scope Tags & Decorative Badges
+   ========================================== */
+.achievement-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.achievement-scope-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   font-weight: 700;
-  color: #2a3a55;
-  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  letter-spacing: 0.02em;
 }
 
-.achievement-card p {
-  margin: 4px 0;
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.4;
+.trophy-glow-icon {
+  color: var(--text-secondary);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
 }
 
-/* Responsive text scaling for smaller screens */
-@media (max-width: 480px) {
-  .achievements-section h2 {
-    font-size: 2rem;
+/* ==========================================
+   📝 Core Descriptive Information Body
+   ========================================== */
+.achievement-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.achievement-main-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.achievement-subtitle-metric {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #10b981; /* Success Mint Green for competitive metrics placement titles */
+  margin: 0;
+}
+
+.achievement-log-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+}
+
+/* ==========================================
+   ⚙️ Technical System Bottom Footer Row
+   ========================================== */
+.achievement-card-footer {
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+.verification-status {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   📱 Mobile View Orientation Adapters
+   ========================================== */
+@media (max-width: 1024px) {
+  .achievements-matrix-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-matrix-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
   }
 
-  .achievement-card h3 {
-    font-size: 1.1rem;
+  .achievement-terminal-card {
+    padding: 1.5rem;
   }
 
-  .achievement-card p {
+  .achievement-main-title {
+    font-size: 1.05rem;
+  }
+
+  .achievement-subtitle-metric {
+    font-size: 0.75rem;
+  }
+
+  .achievement-description {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .achievement-terminal-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .achievement-card-header {
+    gap: 0.75rem;
+  }
+
+  .achievement-scope-tag {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .achievement-main-title {
+    font-size: 0.95rem;
+  }
+
+  .achievement-subtitle-metric {
+    font-size: 0.7rem;
+  }
+
+  .achievement-description {
+    font-size: 0.85rem;
   }
 }

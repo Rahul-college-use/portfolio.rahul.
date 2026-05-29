@@ -1,115 +1,245 @@
+/* ==========================================
+   Timeline Section Layout Setup
+   ========================================== */
 .timeline-section {
-  padding: 50px 20px;
-  background-color: #f0f4f8;
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.timeline-title {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #2563eb;
+/* Container simulating a secure terminal panel box wrapper */
+.git-log-container {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-mono);
 }
 
-.timeline-container {
+.git-terminal-top {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-prompt {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* The Core Graph Track Frame */
+.git-graph-body {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout block structure mapping a clean row split grid */
+.git-commit-row {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  min-height: 90px;
+}
+
+.git-marker-row {
+  min-height: 60px;
+}
+
+/* ==========================================
+   🎋 The Git Graphic Track Line
+   ========================================== */
+.git-graph-line-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  margin: 0 auto;
-  padding-left: 20px;
-  max-width: 700px;
-  border-left: 4px solid #2563eb;
 }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-  padding-left: 30px;
-  text-align: left;
-}
-
-.timeline-dot {
-  position: absolute;
-  top: 0;
-  left: -11px;
-  width: 20px;
-  height: 20px;
-  background-color: #2563eb;
+/* Nodes representing localized milestones */
+.git-node-dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  border: 3px solid white;
+  z-index: 2;
+  margin-top: 0.4rem;
 }
 
-.timeline-content h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #1e40af;
+.commit-node {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+  border: 2px solid var(--bg-glass);
 }
 
-.timeline-content h4 {
-  margin: 5px 0;
-  color: #111827;
+.marker-node {
+  background-color: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+}
+
+/* Vertical track connecting nodes */
+.git-line-connector {
+  position: absolute;
+  top: 16px;
+  bottom: -16px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 4px,
+    var(--border-color) 4px,
+    var(--border-color) 8px
+  );
+  z-index: 1;
+}
+
+/* ==========================================
+   📦 Log Content Layout Elements
+   ========================================== */
+.git-commit-content {
+  padding-left: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.git-log-card {
+  transition: transform 0.2s ease;
+}
+
+.git-log-card:hover {
+  transform: translateX(4px); /* Interactive slide out movement on card inspection */
+}
+
+.git-log-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+}
+
+.git-hash {
+  color: #f59e0b; /* Golden developer shell hash color output representation */
   font-weight: 600;
 }
 
-.timeline-content p {
+.git-timestamp {
+  color: var(--text-secondary);
+}
+
+.git-commit-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif; /* Clean font for text readability */
+}
+
+.git-commit-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
   margin: 0;
-  color: #374151;
-  font-size: 15px;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Special timeline start/end markers */
-.timeline-marker {
-  text-align: center;
-  margin: 40px 0;
-  position: relative;
+/* ==========================================
+   🏷️ Git System Pointer Branches Tags
+   ========================================== */
+.git-status-tag-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.15rem;
 }
 
-.timeline-marker::before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 16px;
-  background-color: #2563eb;
-  border-radius: 50%;
-  margin: 0 auto 10px auto;
-  border: 3px solid white;
+.git-branch-tag {
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #10b981;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
 }
 
-.marker-title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1e40af;
+.git-branch-tag.pulse-tag {
+  background-color: var(--accent-glow);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  animation: branch-glow-pulse 2s infinite ease-in-out;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .timeline-container {
-    padding-left: 15px;
+.git-branch-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ==========================================
+   ⏳ Custom Keyframe Animations
+   ========================================== */
+@keyframes branch-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.3); }
+  50% { box-shadow: 0 0 8px 2px rgba(6, 182, 212, 0.5); }
+}
+
+/* ==========================================
+   📱 Responsive Media Adjustments
+   ========================================== */
+@media (max-width: 1024px) {
+  .git-graph-body {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .git-log-container {
+    border-radius: 12px;
+  }
+  
+  .git-graph-body {
+    padding: 1.5rem 1.25rem;
   }
 
-  .timeline-dot {
-    left: -9px;
-    width: 16px;
-    height: 16px;
+  .git-commit-row {
+    min-height: 80px;
   }
 
-  .timeline-content h3 {
-    font-size: 1.1rem;
-  }
-
-  .timeline-content h4 {
+  .git-commit-title {
     font-size: 1rem;
   }
 
-  .timeline-content p {
-    font-size: 14px;
+  .git-commit-desc {
+    font-size: 0.85rem;
+  }
+  
+  .git-status-tag-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .git-graph-body {
+    padding: 1rem;
   }
 
-  .marker-title {
-    font-size: 1.2rem;
+  .git-commit-row {
+    grid-template-columns: 30px 1fr;
+    min-height: 70px;
   }
 
-  .timeline-marker::before {
-    width: 12px;
-    height: 12px;
+  .git-commit-title {
+    font-size: 0.9rem;
+  }
+
+  .git-commit-desc {
+    font-size: 0.8rem;
+  }
+
+  .git-log-meta {
+    font-size: 0.7rem;
   }
 }

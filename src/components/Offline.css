@@ -1,25 +1,127 @@
-/* src/pages/Offline.css */
-.offline {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #f2f2f2;
-  color: #333;
-  font-family: 'Segoe UI', sans-serif;
+/* ==========================================
+   📡 Technical Offline State Box Component
+   ========================================== */
+.offline-console-wrapper {
+  width: 100%;
+  max-width: 550px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
-/* src/components/Offline.css */
-.offline-page {
-  height: 100vh;
-  background-color: #f8f9fa;
-  color: #333;
+
+.offline-terminal-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(239, 68, 68, 0.06); /* Subtle warning red shadow pulse hint */
+}
+
+/* Header bar simulator matching component systems */
+.offline-top-bar {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.offline-window-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.o-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.o-red { background-color: #ef4444; }
+.o-yellow { background-color: #f59e0b; }
+.o-green { background-color: #10b981; }
+
+.offline-terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ==========================================
+   📝 Internal Content Layout
+   ========================================== */
+.offline-body-content {
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: 'Segoe UI', sans-serif;
   text-align: center;
-  padding: 20px;
+  gap: 1.25rem;
+}
+
+/* Pulsing Infrastructure warning hazard node */
+.alert-icon-pulse {
+  color: #f59e0b; /* Diagnostic Alert Amber */
+  background: rgba(245, 158, 11, 0.08);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: warning-glow-breathing 2s infinite ease-in-out;
+}
+
+.offline-headline {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.offline-description {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* ==========================================
+   ⚙️ Bottom Diagnostic Footer Row
+   ========================================== */
+.offline-system-footer {
+  width: 100%;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+.ping-retry-ticker {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  letter-spacing: 0.06em;
+  animation: text-blink-waiting 1.5s steps(2, start) infinite;
+}
+
+/* ==========================================
+   ⏳ Custom Keyframe Animations
+   ========================================== */
+@keyframes warning-glow-breathing {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.2); }
+  50% { transform: scale(1.04); box-shadow: 0 0 16px 4px rgba(245, 158, 11, 0.1); }
+}
+
+@keyframes text-blink-waiting {
+  to { visibility: hidden; }
 }

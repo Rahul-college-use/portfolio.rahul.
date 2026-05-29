@@ -1,26 +1,18 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Background from './components/Background';
+import Timeline from './components/Timeline';
 import Projects from './components/Projects';
+import GitHubProjects from './components/GitHubProjects';
 import Achievements from './components/Achievements';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTopWithChatbot';
-import GitHubProjects from './components/GitHubProjects';
-import ScrollToTop2 from './components/ScrollToTop2';
 import Offline from './components/Offline';
-// import ChatBot from './components/ChatBot';
-import Timeline from './components/Timeline';
-
-
-
-
-// import SecurityBlocker from './components/SecurityBlocker';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('darkMode') === 'true' || false;
+    return localStorage.getItem('darkMode') === 'true';
   });
 
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -39,9 +31,12 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // Sync dark mode configuration with global data attribute on html element
     if (darkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
       document.body.classList.add('dark-mode');
     } else {
+      document.documentElement.setAttribute('data-theme', 'light');
       document.body.classList.remove('dark-mode');
     }
     localStorage.setItem('darkMode', darkMode);
@@ -49,23 +44,48 @@ function App() {
 
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
-  if (!isOnline) {
-    return <Offline />;
-  }
-
   return (
+    <div className={`portfolio-root ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+      
+      {/* 📡 Non-intrusive Technical Offline Status Banner */}
+      <div className={`system-network-banner ${!isOnline ? 'banner-visible' : ''}`}>
+        <div className="banner-content">
+          <span className="banner-pulse-icon"></span>
+          <p className="banner-text">
+            [SYSTEM ALERT]: Network connection dropped. Displaying offline cached application data.
+          </p>
+        </div>
+      </div>
 
-    <div className="portfolio-container">
-      {/* <SecurityBlocker/> */} {/* Add in indexhtml private.js file so this is not use  */}
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Background darkMode={darkMode} />
-      <Timeline mode={darkMode} />
-      <Projects darkMode={darkMode} />
-      <GitHubProjects darkMode={darkMode} />
-      <Achievements darkMode={darkMode} />
+      
+      <main className="portfolio-main-layout">
+        <section id="background">
+          <Background darkMode={darkMode} />
+        </section>
+        
+        <section id="timeline">
+          <Timeline mode={darkMode} />
+        </section>
+        
+        <section id="projects">
+          <Projects darkMode={darkMode} />
+        </section>
+        
+        <section id="github">
+          <GitHubProjects darkMode={darkMode} />
+        </section>
+        
+        <section id="achievements">
+          <Achievements darkMode={darkMode} />
+        </section>
+      </main>
+
       <Footer darkMode={darkMode} />
+      
+      {/* Only rendering single smart utility option */}
       <ScrollToTop mode={darkMode ? 'dark' : 'light'} />
-      <ScrollToTop2 />
+      
     </div>
   );
 }

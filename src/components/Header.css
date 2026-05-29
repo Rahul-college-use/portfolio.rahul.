@@ -1,197 +1,367 @@
+/* ==========================================
+   Design System Variables & Setup
+   ========================================== */
+/* ==========================================
+   Design System Variables & Setup
+   ========================================== */
+.portfolio-header.dark {
+  --bg-glass: rgba(15, 23, 42, 0.85);
+  --border-color: rgba(124, 58, 237, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-color: #8b5cf6;
+  --accent-glow: rgba(139, 92, 246, 0.2);
+  --panel-bg: rgba(30, 41, 59, 0.55);
+  --mobile-overlay: rgba(15, 23, 42, 0.98);
+}
+
+.portfolio-header.light {
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --border-color: rgba(124, 58, 237, 0.1);
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --accent-color: #6d28d9;
+  --accent-glow: rgba(124, 58, 237, 0.08);
+  --panel-bg: rgba(249, 250, 251, 0.8);
+  --mobile-overlay: rgba(255, 255, 255, 0.98);
+}
+
+/* Base Header Layout */
 .portfolio-header {
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-.portfolio-header {
-  transition: background-color 0.5s ease;
-}
-
-
-.header-content {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
-}
-/* Container for the profile image */
-.profile-image-container {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.profile-image-container:hover {
-  transform: scale(1.05);
-}
-
-/* Base image styles */
-.profile-image {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition:
-    background-color 0.5s ease,
-    filter 0.5s ease,
-    opacity 0.5s ease-in-out;
+  z-index: 1000;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, border 0.3s ease;
+  font-family: 'SF Mono', Fira Code, Consolas, monospace;
 }
 
-/* Show image with fade-in */
-.profile-image.fade-in {
-  opacity: 1;
-}
-
-/* Dark mode styles */
-.profile-image.dark {
-  background-color: #333;
-  filter: brightness(1.1);
-}
-
-/* Light mode styles */
-.profile-image.light {
-  background-color: #f9f9f9;
-  filter: brightness(1);
-}
-
-.header-content h1 {
-  margin: 10px 0 5px;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.header-content p {
-  font-size: 1.1rem;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
-
-.nav-links {
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 8px 16px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-/* Smooth transition for background and text */
-body, .portfolio-header, .theme-toggle-btn {
-  transition: background-color 0.6s ease, color 0.6s ease;
-}
-
-/* Light mode default */
-body {
-  background-color: #fff;
-  color: #222;
-}
-
-.portfolio-header {
-  background-color: #f9f9f9;
-}
-
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #121212;
-  color: #eee;
-}
-
-body.dark-mode .portfolio-header {
-  background-color: #1e1e1e;
-}
-
-/* Toggle button styling */
-.theme-toggle-btn {
-  margin-left: auto;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  background-color: #2563eb;
-  color: white;
-  outline-offset: 2px;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-.theme-toggle-btn:hover {
-  background-color: #1e40af;
-}
-
-body.dark-mode .theme-toggle-btn {
-  background-color: #bb86fc;
-  color: #222;
-}
-
-body.dark-mode .theme-toggle-btn:hover {
-  background-color: #9f6efd;
+/* Branding Elements */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1010; /* Keep branding readable over mobile panels */
 }
 
 .profile-image-container {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: auto;
+  width: 44px;
+  height: 44px;
 }
 
 .profile-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease-in-out;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.profile-image.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.datetime {
-  font-size: 14px;
-  margin-top: 5px;
-  color: gray;
+.profile-image:hover {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
 }
 
 .image-skeleton {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
-  background: linear-gradient(100deg, #ccc 30%, #e1e1e1 50%, #ccc 70%);
+  background: linear-gradient(90deg, var(--panel-bg) 25%, var(--border-color) 50%, var(--panel-bg) 75%);
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+  animation: loading-shimmer 1.5s infinite;
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #10b981;
+  border-radius: 50%;
+  border: 2px solid var(--bg-glass);
+  box-shadow: 0 0 8px #10b981;
+  animation: status-pulse 2s infinite;
 }
 
-.fade-in {
-  opacity: 1 !important;
+.brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.brand-title {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* System Clock Panel (Desktop) */
+.header-status-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--panel-bg);
+  padding: 0.25rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  min-width: 220px;
+}
+
+.status-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 0.1em;
+}
+
+.datetime-display {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.separator {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* Navigation Links Style */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Mobile Hamburger Menu Toggle Button Base Icon Style */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.25s ease-in-out;
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+@keyframes loading-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.fade-in { opacity: 1; transition: opacity 0.4s ease; }
+.hidden { opacity: 0; }
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES (Breakpoints)
+   ========================================== */
+
+/* Tablet & Intermediate Views */
+@media (max-width: 1024px) {
+  .header-status-panel {
+    display: none; /* Safely hides technical metric clock panel to prevent menu collapse squeezing */
+  }
+}
+
+/* Mobile Devices Breakpoint */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.75rem 1.25rem;
+    gap: 0;
+  }
+
+  .hamburger-menu {
+    display: flex; /* Activates interactive hamburger icon */
+  }
+
+  /* Structural Shift: Moves link list into sliding mobile fullscreen tray panel */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Fully hidden out-of-frame to the right by default */
+    width: 280px;
+    height: 100vh;
+    background: var(--mobile-overlay);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border-color);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 6rem 2rem 2rem 2rem;
+    gap: 2rem;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.mobile-active {
+    right: 0; /* Slides into view dynamically when menu state triggers true */
+  }
+
+  .nav-item {
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .theme-toggle-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Hamburger Interaction Transforms to 'X' icon */
+  .hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--accent-color);
+  }
+
+  .hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--accent-color);
+  }
+}
+
+/* Update your container to handle alignment and padding gracefully */
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem; /* Reduced gap slightly to prevent pushing elements out */
+  flex-wrap: nowrap; /* Crucial: Prevents elements from dropping to a new row randomly */
+}
+
+/* Ensure your nav-links block handles space efficiently */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* Clean layout tracking spacing */
+  flex-shrink: 0; /* Prevents the navigation block from shrinking into oblivion */
+}
+
+/* Update your items to match a cleaner, borderless structure */
+.nav-item {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0.25rem; /* Clean vertical clickable tap targets */
+  transition: color 0.2s ease;
+  white-space: nowrap; /* Forces text like 'Git Projects' to stay on one single line */
+}
+
+/* Responsive Tablet Patch: If the screen starts squeezing your items */
+@media (max-width: 1140px) {
+  .header-status-panel {
+    display: none; /* Hide the center system clock panel earlier if the desktop links need the space */
+  }
 }

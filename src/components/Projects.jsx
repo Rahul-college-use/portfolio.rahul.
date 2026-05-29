@@ -2,44 +2,40 @@ import React, { useState, useEffect, useRef } from 'react';
 import Project from './Project';
 import './Projects.css';
 
-const Projects = ({ darkMode }) => {
+const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(""); // ✅ FIXED (state instead of variable)
+  const [error, setError] = useState("");
 
   const projectsContainerRef = useRef(null);
 
   useEffect(() => {
+    // Shimmer delay emulation
     const timer = setTimeout(() => {
       fetch('https://portfolio-rahul-api.vercel.app/data')
         .then(res => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok");
-          }
+          if (!res.ok) throw new Error("Network response was not ok");
           return res.json();
         })
         .then(data => {
-          // ✅ Safe handling if API structure changes
           const formattedData = Array.isArray(data) ? data : [];
-
           setProjects([...formattedData].reverse());
           setLoading(false);
         })
         .catch(err => {
-          // console.error("Error fetching projects:", err);
-          setError("Failed to load projects. Please try again later.");
+          setError("Infrastructure nodes unreachable. Please review deployment strings later.");
           setProjects([]);
           setLoading(false);
         });
-    }, 2000); // keep shimmer delay
+    }, 1200); // Crisper transition speed than 2000ms
 
     return () => clearTimeout(timer);
   }, []);
 
+  // Structural body handler for rendering skeletons or live arrays
   const renderProjects = () => {
     const skeletons = new Array(4).fill(null);
-
     return (loading ? skeletons : projects).map((project, index) => (
       <Project
         key={project?.id || index}
@@ -50,53 +46,70 @@ const Projects = ({ darkMode }) => {
   };
 
   return (
-    <section
-      id="projects"
-      className="projects-section"
-      style={darkMode ? { background: "rgba(74, 98, 132, 0.34)" } : {}}
-    >
-      <h2 style={darkMode ? { color: "rgba(244, 244, 244, 0.64)" } : {}}>
-        My Projects
-      </h2>
-
-      {/* Error Message */}
-      <div style={{textAlign:'center'}}>
-        <h2 style={{color:'red'}}>
-      { error && <p className="error-message">API not responding: {error}</p>}
-
-        </h2>
-
+    <section className="projects-section">
+      <div className="section-header-tag">
+        <span className="code-accent">&lt;</span>
+        <h2>Production Deployments</h2>
+        <span className="code-accent">/&gt;</span>
       </div>
 
-      <div className="projects-container" ref={projectsContainerRef}>
-        <div className="projects-track">{renderProjects()}</div>
+      {/* Structured Technical System Error Alert */}
+      {error && (
+        <div className="api-error-console">
+          <span className="error-badge">STATUS_ERR</span>
+          <p className="error-message">{error}</p>
+        </div>
+      )}
+
+      {/* Grid Dashboard Container */}
+      <div className="projects-grid-container" ref={projectsContainerRef}>
+        <div className="projects-matrix-grid">
+          {renderProjects()}
+        </div>
       </div>
 
-      {/* Modal */}
+      {/* Premium Glassmorphism Detail Backdrop Modal */}
       {selectedProject && (
-        <div className="project-modal">
-          <div className="modal-content">
-            <h3>{selectedProject.title}</h3>
+        <div className="project-modal-backdrop" onClick={() => setSelectedProject(null)}>
+          <div className="modal-terminal-card" onClick={(e) => e.stopPropagation()}>
+            
+            {/* Terminal Card Header Top Bar */}
+            <div className="modal-top-bar">
+              <div className="modal-dots">
+                <span className="m-dot m-red" onClick={() => setSelectedProject(null)}></span>
+                <span className="m-dot m-yellow"></span>
+                <span className="m-dot m-green"></span>
+              </div>
+              <span className="modal-system-title">project_inspector.exe</span>
+            </div>
 
-            {/* fallback for image field */}
-            <img
-              src={selectedProject.imageUrl || selectedProject.image}
-              alt={selectedProject.title}
-            />
+            <div className="modal-body-layout">
+              <div className="modal-media-frame">
+                <img
+                  src={selectedProject.imageUrl || selectedProject.image}
+                  alt={selectedProject.title}
+                  className="modal-preview-img"
+                />
+              </div>
 
-            <p>{selectedProject.details}</p>
+              <div className="modal-info-panel">
+                <h3 className="modal-project-title">{selectedProject.title}</h3>
+                <p className="modal-project-details">{selectedProject.details || "No operational log description details appended inside target endpoint data structure fields."}</p>
+                
+                <div className="modal-action-row">
+                  <button
+                    className="modal-btn btn-primary"
+                    onClick={() => window.open(selectedProject.link, '_blank')}
+                  >
+                    <span>🔗 Launch Live Deployment</span>
+                  </button>
+                  <button className="modal-btn btn-secondary" onClick={() => setSelectedProject(null)}>
+                    Close Terminal
+                  </button>
+                </div>
+              </div>
+            </div>
 
-            <button
-              onClick={() =>
-                window.open(selectedProject.link, '_blank')
-              }
-            >
-              🔗 Visit Project
-            </button>
-
-            <button onClick={() => setSelectedProject(null)}>
-              ❌ Close
-            </button>
           </div>
         </div>
       )}

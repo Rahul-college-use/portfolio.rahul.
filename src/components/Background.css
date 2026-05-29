@@ -1,276 +1,418 @@
-.profile-intro {
-  background-color: #e6f0ff;
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+/* ==========================================
+   Background Section Layout System
+   ========================================== */
+.background-section {
+  width: 100%;
   display: flex;
-  align-items: flex-start;
-  gap: 35px;
-  margin-bottom: 50px;
-  transition: background-color 0.3s ease;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 80px;
+  padding: 0;
 }
 
-.profile-intro:hover {
-  background-color: #c9dbff;
+/* Code styled section labeling anchors */
+.section-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
 }
 
-.student-image {
-  width: 280px;
-  height: 280px;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.student-image:hover {
-  transform: scale(1.05);
-}
-.background-section{
-    transition: background-color 0.5s ease;
-
-}
-
-.intro-text {
-  flex: 1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #334e68;
-}
-
-.intro-text h2 {
+.section-header-tag h2 {
   font-size: 2rem;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-
-.intro-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #526d82;
-}
-
-@media (max-width: 768px) {
-  .profile-intro {
-    flex-direction: column;
-    padding: 20px 15px;
-    border-radius: 12px;
-  }
-
-  .student-image {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-}
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.profile-intro {
-  animation: fadeInLeft 1.5s ease forwards;
-}
-
-.student-image {
-  transition: transform 0.3s ease;
-}
-
-.student-image:hover {
-  transform: scale(1.05);
-}
-.student-details {
-  margin-top: 20px;
-  background-color: rgba(102, 126, 234, 0.1);
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-  color: #334e68;
-}
-
-.student-details h3 {
-  margin-bottom: 12px;
-  font-weight: 700;
-  color: #2a3a55;
-}
-
-.student-details ul {
-  list-style-type: none;
-  padding: 0;
   margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.student-details li {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  line-height: 1.4;
+.code-accent {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.9;
 }
 
-.student-details strong {
-  color: #445a75;
-}
-.profile-intro {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 40px;
-  animation: fadeInLeft 1.5s ease forwards;
-}
-
-.student-image {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.student-image:hover {
-  transform: scale(1.05);
-}
-
-.intro-text {
-  flex: 1;
-  color: #222;
-}
-
-.intro-text h2 {
-  margin-bottom: 12px;
-  font-weight: 700;
-  color: #334e68;
-}
-
-.intro-text p {
-  margin-bottom: 24px;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #555;
-}
-
-.student-details {
-  background-color: rgba(102, 126, 234, 0.1);
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-  color: #334e68;
-}
-
-.student-details h3 {
-  margin-bottom: 12px;
-  font-weight: 700;
-  color: #2a3a55;
-}
-
-.student-details ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.student-details li {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.student-details strong {
-  color: #445a75;
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .profile-intro {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .student-image {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .intro-text {
-    text-align: center;
-  }
-  
-  .student-details {
-    padding: 15px 20px;
-  }
-}
-.shimmer-wrapper {
-  position: relative;
+/* ==========================================
+   💻 Technical Terminal Card Wrap
+   ========================================== */
+.background-card-container {
+  background: var(--panel-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  background: #f6f7f8;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-.shimmer {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
-  background-size: 1000px 100%;
-  animation: shimmer 1.5s infinite linear;
+/* Terminal top handle decoration controls bar */
+.terminal-header {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(59, 130, 246, 0.05));
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+.terminal-dots {
+  display: flex;
+  gap: 0.5rem;
 }
 
-.shimmer-box {
-  height: 18px;
-  margin: 8px 0;
-  border-radius: 4px;
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
-.image-container {
+.dot-red { background-color: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.3); }
+.dot-yellow { background-color: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.3); }
+.dot-green { background-color: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.3); }
+
+.terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* Inner Split Grid Panel Body styling setup */
+.background-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+}
+
+/* ==========================================
+   📸 Media Frame Shimmers
+   ========================================== */
+.image-frame-wrapper {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  height: auto;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
 }
 
 .shimmer-image {
   width: 100%;
-  border-radius: 10px;
-  display: block;
+  height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s ease;
 }
 
-.image-loading {
+.shimmer-image.loaded:hover {
+  transform: scale(1.03);
+}
+
+.image-loading-shimmer {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-top: 75%; /* Aspect ratio */
-  background: linear-gradient(
-    to right,
-    #eeeeee 0%,
-    #dddddd 20%,
-    #eeeeee 40%,
-    #eeeeee 100%
-  );
-  background-size: 1000px 100%;
-  animation: shimmer 1.5s infinite linear;
-  border-radius: 10px;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 25%, var(--border-color) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: background-shimmer 1.5s infinite;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
+/* ==========================================
+   📝 Content Panel Typography
+   ========================================== */
+.intro-text-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.console-subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.typewriter-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  min-height: 100px;
+}
+
+.blinking-terminal-cursor {
+  color: var(--accent-color);
+  font-size: 1rem;
+  margin-left: 2px;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* ==========================================
+   📊 Metadata Grid & Pills Tags
+   ========================================== */
+.student-details-grid {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details-heading {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.meta-item.full-width {
+  grid-column: span 2;
+}
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.meta-value.link {
+  color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.meta-value.link:hover {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+.text-highlight {
+  color: var(--text-primary);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tech Pills Matrix Grouping setup */
+.tech-tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(59, 130, 246, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.tech-pill:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* ==========================================
+   ⏳ Skeleton Loading Animations
+   ========================================== */
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.shimmer-line {
+  height: 16px;
+  background: linear-gradient(90deg, var(--border-color) 25%, rgba(255,255,255,0.08) 50%, var(--border-color) 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: background-shimmer 1.5s infinite;
+}
+
+.line-long { width: 100%; }
+.line-medium { width: 88%; }
+.line-short { width: 45%; }
+
+@keyframes background-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes cursor-blink {
+  from, to { color: transparent }
+  50% { color: var(--accent-color); }
+}
+
+/* ==========================================
+   📱 Responsive Media Layout Adapters
+   ========================================== */
+@media (max-width: 1024px) {
+  .background-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
   }
-  100% {
-    background-position: 1000px 0;
+
+  .image-frame-wrapper {
+    height: 300px;
+  }
+
+  .meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .background-section {
+    margin-top: 120px;
+  }
+
+  .section-header-tag h2 {
+    font-size: 1.5rem;
+  }
+
+  .background-content {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .image-frame-wrapper {
+    height: 250px;
+  }
+
+  .console-subtitle {
+    font-size: 1rem;
+  }
+
+  .typewriter-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    min-height: 80px;
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-item.full-width {
+    grid-column: span 1;
+  }
+
+  .tech-tags-group {
+    gap: 0.5rem;
+  }
+
+  .tech-pill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .background-section {
+    gap: 1.5rem;
+    margin-top: 100px;
+  }
+
+  .section-header-tag h2 {
+    font-size: 1.25rem;
+  }
+
+  .code-accent {
+    font-size: 1.2rem;
+  }
+
+  .background-card-container {
+    border-radius: 12px;
+  }
+
+  .background-content {
+    padding: 1rem;
+  }
+
+  .image-frame-wrapper {
+    height: 200px;
+  }
+
+  .intro-text-panel {
+    gap: 1rem;
+  }
+
+  .console-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .typewriter-body {
+    font-size: 0.9rem;
+    min-height: 60px;
+  }
+
+  .student-details-grid {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    gap: 0.75rem;
+  }
+
+  .details-heading {
+    font-size: 0.7rem;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+  }
+
+  .tech-pill {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
   }
 }

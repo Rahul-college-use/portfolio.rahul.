@@ -1,36 +1,161 @@
+/* ==========================================
+   GitHub Repositories Grid Section
+   ========================================== */
 .github-projects-section {
-  padding: 40px 20px;
-  background: var(--section-bg, #f9f9f9);
-  transition: background-color 0.5s;
-}
-
-.github-projects-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.github-projects-list {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.github-project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  width: 280px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+/* ==========================================
+   📊 Card Architecture Matrix
+   ========================================== */
+.github-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
 }
 
-.github-project-card:hover {
-  transform: translateY(-5px);
+.github-repo-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.github-project-card a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
+.github-repo-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   🗂️ Repo Card Top row headers
+   ========================================== */
+.repo-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.repo-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--accent-color);
+}
+
+.repo-icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.repo-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  /* Protects text line limits */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.repo-visibility-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   📝 Repo Descriptions & Details Text
+   ========================================== */
+.repo-description {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+  flex-grow: 1;
+  /* Restricts long text arrays to exactly 3 lines cleanly */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================
+   ⚙️ Card Footer Meta Row Indicators
+   ========================================== */
+.repo-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.repo-lang-metric {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lang-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.lang-text-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.repo-action-link {
+  color: var(--text-secondary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.repo-action-link span {
+  transition: transform 0.2s ease;
+}
+
+/* Smooth forward micro-slide of footer directional arrow link on hover action */
+.github-repo-card:hover .repo-action-link {
+  color: var(--text-primary);
+}
+
+.github-repo-card:hover .repo-action-link span {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   📱 Mobile View Responsive Adapters
+   ========================================== */
+@media (max-width: 480px) {
+  .github-grid-layout {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,110 +1,231 @@
-.project-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  cursor: pointer;
+/* ==========================================
+   📦 Technical Project Card Base Layout
+   ========================================== */
+.technical-project-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 400px;
-  margin: 1rem;
   display: flex;
   flex-direction: column;
-}
-/* YouTube-style shimmer effect */
-.shimmer {
-  background: linear-gradient(90deg, #e0e0e0 0%, #f8f8f8 50%, #e0e0e0 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite linear;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
-.shimmer-wrapper {
-  padding: 1rem;
+.technical-project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 30px var(--accent-glow);
 }
 
-.shimmer-image {
+/* ==========================================
+   🖼️ Card Top Media Handle Section
+   ========================================== */
+.card-media-window {
+  position: relative;
   width: 100%;
   height: 180px;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
 }
 
-.shimmer-text.title {
-  width: 60%;
-  height: 20px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-}
-
-.shimmer-text.description {
-  width: 80%;
-  height: 14px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-}
-
-.shimmer-tags {
-  display: flex;
-  gap: 8px;
-}
-
-.shimmer-tag {
-  width: 60px;
-  height: 20px;
-  border-radius: 20px;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.project-card img {
+.card-display-img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  transition: transform 0.4s ease;
 }
 
-.project-info {
-  padding: 1rem 1.2rem;
-  flex: 1;
+.technical-project-card:hover .card-display-img {
+  transform: scale(1.03); /* Soft macro zoom adjustment on hover look */
+}
+
+/* System Live Status Pill Badge overlay tags layout */
+.media-overlay-ledger {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.deployment-badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #10b981; /* Success Green text representation label */
+  background: rgba(15, 23, 42, 0.85); /* Deep frosted capsule container text layer */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  letter-spacing: 0.04em;
+}
+
+.live-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #10b981;
+  animation: static-green-pulse 2s infinite;
+}
+
+/* ==========================================
+   📝 Internal Content Descriptions
+   ========================================== */
+.card-technical-body {
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.project-info h3 {
-  margin: 0 0 0.5rem 0;
-  color: #222;
-}
-
-.project-info p {
+  gap: 0.75rem;
   flex-grow: 1;
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
 }
 
-.tech-tags {
+.card-main-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.card-main-desc {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+  /* Limits paragraph box footprint height precisely to exactly 3 layout text rows */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Operational Badging Row configuration tags components */
+.card-tech-pill-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin-top: auto; /* Pushes arrays safely flush toward grid baseline lines */
+  padding-top: 0.5rem;
 }
 
-.tech-tag {
-  background-color: #667eea;
-  color: white;
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  user-select: none;
+.card-meta-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Decorative Card Inspection Hint Footer */
+.card-interactive-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.inspection-action-hint {
+  color: var(--text-secondary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.inspection-action-hint span {
+  transition: transform 0.2s ease;
+}
+
+.technical-project-card:hover .inspection-action-hint {
+  color: var(--accent-color);
+}
+
+.technical-project-card:hover .inspection-action-hint span {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   ⏳ Technical Shimmer Skeleton Loader Layouts
+   ========================================== */
+.project-card-skeleton {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 380px;
+}
+
+.skeleton-media-box {
+  width: 100%;
+  height: 180px;
+  background: var(--border-color);
+}
+
+.skeleton-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-line {
+  height: 12px;
+  background: var(--border-color);
+  border-radius: 4px;
+}
+.line-h3 { width: 60%; height: 16px; margin-bottom: 0.25rem; }
+.line-p1 { width: 100%; }
+.line-p2 { width: 85%; }
+
+.skeleton-tags-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.skeleton-pill {
+  width: 50px;
+  height: 16px;
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+/* Dynamic theme breathing configuration shimmer effect */
+.shimmer-pulse {
+  background: linear-gradient(90deg, var(--border-color) 25%, rgba(255, 255, 255, 0.05) 50%, var(--border-color) 75%);
+  background-size: 200% 100%;
+  animation: layout-skeleton-shimmer 1.5s infinite;
+}
+
+/* ==========================================
+   ⏳ Custom Keyframe Animations
+   ========================================== */
+@keyframes layout-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes static-green-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
